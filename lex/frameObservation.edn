@@ -1,0 +1,46 @@
+{:lexicon 1
+ :id "com.etzhayyim.apps.mikurabe.frameObservation"
+ :defs
+ {:main
+  {:type "record"
+   :key "tid"
+   :record
+   {:type "object"
+    :required ["clusterId" "observations" "asOf"]
+    :properties
+    {:clusterId    {:type "string"
+                     :description "the compared topic-cluster id — a kawaraban mention-edge/section-route group of :mirror articles, or a kouhou same-announcement group of briefings. mikurabe never invents a cluster; it only receives one already grouped by kawaraban/kouhou's own existing graph"}
+     :observations {:type "array"
+                     :description "one entry per detected framing technique for this ONE topic-cluster — never an aggregate opinion about a source"
+                     :items
+                     {:type "object"
+                      :required ["technique" "description" "cites"]
+                      :properties
+                      {:technique   {:type "string"
+                                     :enum ["omission" "loaded-language" "source-attribution-gap"
+                                            "emphasis-divergence" "framing-order"]
+                                     :description "open, versioned methodNote taxonomy — see docs/methodNote.md. New categories require open-method publication before use (mirrors danjo G6)"}
+                       :description {:type "string" :maxLength 500
+                                     :description "generic/neutral by default; naming a specific outlet/country here gates the WHOLE record behind the Council-ratified named-party phase (R2+)"}
+                       :cites       {:type "array" :minItems 2
+                                     :description "uncited-conclusive gate — ≥2 distinct citations, each a direct reference to one of the input cluster's own kawaraban/kouhou records (mikurabe never fetches independently)"
+                                     :items {:type "object" :required ["itemId" "quote"]
+                                             :properties {:itemId {:type "string"}
+                                                          :quote  {:type "string" :maxLength 280}}}}
+                       :confidence  {:type "number"}}}}
+     :namesParty   {:type "boolean"
+                     :description "true iff any observation's description names a specific outlet/country present in the input cluster — such a record is Council Lv6+ + SBT-vote gated for publication (R2+), never autonomous"}
+     :asOf         {:type "integer" :description "epoch — append-only; the ledger, not this record, is the audit trail of what changed and why"}
+     ;; ── structural-invariant fields: const false / forbidden ──
+     :eventVerdict            {:type "boolean" :const false
+                                :description "mikurabe never asserts what actually happened in the underlying event, only how differently it was described (mirrors kawaraban G1 + danjo G4)"}
+     :outletCredibilityScore  {:type "boolean" :const false
+                                :description "ooyake-G11-mirroring — no standing per-outlet credibility score is representable at any point in this lexicon"}
+     :countryPropagandaRank   {:type "boolean" :const false
+                                :description "ooyake-G11-mirroring — no standing per-country propaganda/regime-type rank is representable at any point in this lexicon"}
+     :regimeTypeLabel         {:type "boolean" :const false
+                                :description "ooyake-G11-mirroring — no standing regime-type classification of a government is representable"}
+     :fullText                {:type "boolean" :const false
+                                :description "mikurabe cites bounded excerpts of what kawaraban/kouhou already published only — never a full body (mirrors kawaraban's own G4 fair-use bound)"}
+     :verdict                 {:type "boolean" :const false
+                                :description "kawaraban-G1-mirroring — mikurabe compares framing, it never adjudicates truth"}}}}}}

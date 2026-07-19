@@ -1,0 +1,48 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/activitystreams",
+    "https://etzhayyim.com/ns/actor-manifest"
+  ],
+  "@type": "ActorManifest",
+  "id": "did:web:etzhayyim.github.io:com-etzhayyim-mikurabe",
+  "name": "mikurabe",
+  "displayName": "見比べ — Comparative Narrative-Framing Observer",
+  "displayNameJa": "見比べ",
+  "displayNameEn": "Mikurabe",
+  "description": "Non-profit religious-corp actor that compares how a SAME topic-cluster (already-public kawaraban news-mirror articles or kouhou government briefings covering the same story) was FRAMED differently across the compared accounts, and publishes citation-grounded technique observations (omission / loaded-language / source-attribution-gap / emphasis-divergence / framing-order) to app-aozora. It is a downstream, passive-only consumer — it never fetches an outlet or government site itself, only what kawaraban/kouhou already made public. Containment (narrative-llm sealed) + independent NarrativeGovernor + append-only observation ledger. The single most important gate: NO field may score, rank, or label a country/government/outlet as a standing entity (schema-level unrepresentable, mirrors ooyake G11 exactly) — mikurabe never renders an opinion about a SOURCE, only about how ONE story was framed. A separate named-party PHASE gate (Council Lv6+ + SBT-vote, mirrors danjo G10) withholds publication of any observation that names a specific outlet/country until R2+; R0/R1 ship as fixture-only scaffold with a mock advisor and mock publisher — no live kawaraban/kouhou data is ever read, no named-party report has ever been published.",
+  "descriptionJa": "kawaraban（news mirror）が既に公開した記事、または kouhou の政府発表ブリーフィングのうち、同一トピッククラスタを比較し、報じ方の技術的差異（省略・誘導表現・出典欠落・強調の違い・見出し選択の違い）を引用付きで app-aozora に投稿する actor。元サイトへの再取得は行わない受動的な downstream consumer。封じ込め（narrative-llm）+ 独立 NarrativeGovernor + append-only 観測台帳。最重要ゲート: 国家・政府・媒体そのものへの信頼度・ランク・レジーム評価はスキーマ層で表現不可能（ooyake G11 と同型）。特定の国・媒体を名指しする観測の公開は別途フェーズゲート（Council Lv6+ + SBT投票、R2+）で保留される。R0/R1 はフィクスチャのみの scaffold — mock advisor + mock publisher、実データ読み込みなし、named-party publication 実績ゼロ。",
+  "tier": "Tier-B",
+  "parentActor": null,
+  "firstTouchChannelInvariant": "app-aozora — com.atproto.repo.createRecord (collection com.etzhayyim.apps.mikurabe.frameObservation). publication = SPEECH (Council-gated for named-party content); NOT actuation.",
+  "lexicons": ["com.etzhayyim.apps.mikurabe.frameObservation"],
+  "adr": {
+    "master": "com-junkawasaki:adr:2607197800",
+    "r0": "com-junkawasaki:adr:2607197800"
+  },
+  "crossActor": {
+    "kawaraban": "topic-cluster source (news mirror; verdict 不可の MEDIUM) — mikurabe reads ONLY kawaraban's already-public :mirror articles, grouped by kawaraban's own existing mention-edge/section-route graph; never re-fetches an outlet itself",
+    "kouhou": "briefing source (government-PR curator, PublicInfoGovernor-gated) — mikurabe reads ONLY kouhou's already-public briefings on the same official announcement",
+    "danjo": "sibling non-adjudicating discipline (G3 passive-only ingestion + G4 non-adjudicating) mikurabe's passive-only-input design and :event-truth-verdict gate mirror",
+    "ooyake": "sibling government-ranking ban (G11: 'do not rank governments or take a political position — descriptive, neutral') mikurabe's :country-or-outlet-verdict gate mirrors EXACTLY, made concrete and schema-enforced for narrative comparison",
+    "tashikame": "citation-grounded conclusive-observation precedent (uncited-conclusive HARD-hold) mikurabe continues, scoped down from single-claim fact-check to per-topic-cluster framing-technique comparison"
+  },
+  "scope": {
+    "phase": "R0 scaffold only — mock-advisor + mock-publisher + fixture-only tests; NO live kawaraban/kouhou data ever read; NO named-party report ever published",
+    "scopeBoundary": "per-topic-cluster comparative narrative-framing observation (how differently N already-public accounts described the SAME story) — never a standing verdict about a country/government/outlet",
+    "exclusions": [
+      "standing country/government/outlet credibility, rank, or regime-type scoring (schema-unrepresentable at every layer — governor + lexicon; mirrors ooyake G11)",
+      "underlying-event truth verdicts (mirrors kawaraban G1 + danjo G4)",
+      "autonomous named-party publication (Council Lv6+ + SBT-vote gated, R2+; default phase is 0/observe — nothing auto-publishes at R0/R1 regardless of named-party status)",
+      "actuation (funds/access/physical — publication ≠ actuation)"
+    ]
+  },
+  "constitutionalDiscipline": {
+    "citationGrounded": "every published observation cites ≥2 of the compared items' own excerpts (tashikame precedent, continued and made mandatory with no exception)",
+    "passiveOnlyIngestion": "mikurabe never fetches an outlet/government site itself — downstream consumer of kawaraban's/kouhou's own already-public output only (danjo G3 discipline)",
+    "noStandingEntityVerdict": "no field may score/rank/label a country, government, or outlet as a standing entity — schema-level unrepresentable in both the NarrativeGovernor (structural key-scan, proven by a poisoned-fixture test) and the frameObservation lexicon (const-false fields), mirrors ooyake G11 exactly",
+    "noEventVerdict": "no field may assert what actually happened in the underlying event — mikurabe compares framing, never adjudicates truth (mirrors kawaraban G1 + danjo G4)",
+    "openMethod": "the :technique taxonomy is published as an open, versioned methodNote (docs/methodNote.md) — mirrors danjo G6; new categories require the same open-method publication discipline before use",
+    "namedPartyCouncilGate": "publishing an observation that names a specific outlet/country is Council Lv6+ + SBT-vote gated for R2+ (mirrors danjo G10 oversightReport) — a separate PHASE gate from the NarrativeGovernor's per-proposal gates",
+    "catastropheVeto": "Rider §2 catastrophe-veto scan before every emit"
+  }
+}
