@@ -1,4 +1,4 @@
-# com-etzhayyim-mikurabe (見比べ)
+# mikurabe (見比べ)
 
 **mikurabe** — a comparative narrative-framing observer. It takes a
 topic-cluster (N already-public **kawaraban** `:mirror` articles grouped by
@@ -8,6 +8,11 @@ framed across the compared accounts — never WHAT actually happened, and
 never a standing opinion about any of the sources involved. Publishes
 citation-grounded technique observations to app-aozora (collection
 `com.etzhayyim.apps.mikurabe.frameObservation`).
+
+The executable Aozora presentation actor is owned by `network-awai/mikurabe`. Its passive
+sources, `etzhayyim/com-etzhayyim-kawaraban` and the governed public-information actors, remain
+separate authorities. Existing `did:web:*.etzhayyim.com` and AT Protocol identifiers are retained
+as compatibility identities; the repository move does not mint a new actor.
 
 **DID**: `did:web:etzhayyim.github.io:com-etzhayyim-mikurabe` (depth-1
 self-minted `did:key` carried in the published record; RAD identity journal
