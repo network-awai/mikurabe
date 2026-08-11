@@ -1,6 +1,7 @@
-{:repo/id "network-awai/mikurabe"
+{:repo/id "network-awai/actor-mikurabe"
  :repo/plane :role
  :repo/role :aozora-framing-observer
  :repo/boundary {:consumer-surface "network-awai/app-aozora"
                  :source-medium "etzhayyim/com-etzhayyim-kawaraban"
-                 :compatibility-repository "etzhayyim/com-etzhayyim-mikurabe"}}
+                 :compatibility-repositories ["network-awai/mikurabe"
+                                              "etzhayyim/com-etzhayyim-mikurabe"]}}
